@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册页面</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+
+        .total{
+            width: 946px;
+            height: 560px;
+            /* 解决外边距塌陷问题 */
+            padding-top: 60px;
+            border: 1px solid #000;
+            margin: 50px auto;
+
+            /* 文字属性：对没有标签的进行居中 */
+            text-align: center;
+            line-height: 52px;
+            /* font-size: 24px; */
+            color:#2289f0; 
+        }
+
+        .total p{
+            /* margin-top: 60px; */
+            margin-bottom: 40px;
+
+             font-size: 46px;
+        }
+
+        .total hr{
+            width: 700px;
+            height: 3px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            /* 设置线条颜色 */
+
+            border: 1px solid #2289f0;
+        }
+
+     
+        .total form label{
+            line-height: 54px;
+            font-size: 24px;
+        }
+
+        .total input{
+            width: 282px;
+            height: 38px;
+            margin-left: 30px;
+            font-size: 24px;
+
+        }
+    
+         .total input::placeholder{
+            color: #757575;
+        }
+
+        .total .submit{
+            background-color: #2289f0;
+            color: #ffffff;
+            width: 180px;
+            height: 58px;
+            margin-top: 22px;
+            border-style: none;
+
+            font-size: 28px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="total">
+        <p>用户注册页面</p>
+        <hr>
+        <!-- form可以理解为表单区域 用于放置表单元素<input>、<textarea>、<select>、<button>-->
+            <!-- action为空，指的是提交到当前网页的URL -->
+        <form action="" method="post">
+            <!-- label标签：用于增大点击区域 -->
+             <!-- for与某个表单元素的id绑定 -->
+            <label for="username">用户名:</label>  
+            <!-- required标签：不填写该数据不能提交 -->
+             <!-- name为标识标签 -->
+            <input type="text" id="username" name="username" required placeholder="请输入用户名">
+            <br>
+
+            <label for="password"> 密&nbsp;&nbsp;&nbsp;码:</label>
+            <input type="password" id="password" name="password" required placeholder="请输入密码">
+            <br>
+
+            <label for="confirm">确&nbsp;&nbsp;&nbsp;认:</label>
+            <input type="password" id="confirm" name="confirm" required placeholder="请再次输入密码">
+            <br>
+
+            <label for="realname"> 姓&nbsp;&nbsp;&nbsp;名:</label>
+            <input type="text" id="realname" name="realname" placeholder="请输入真实姓名">
+            <br>
+
+            <label for="email"> 邮&nbsp;&nbsp;&nbsp;箱:</label>
+            <input type="email" id="email" name="email" placeholder="请输入电子邮箱">
+            <br>
+
+            <input type="submit" value="提交注册" class="submit">
+
+        </form>
+
+        
+    </div>
+        <!-- 检验密码是否正确  -->
+    <script>
+        document.getElementById('confirm').addEventListener('input', function() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm').value;
+            if (password !== confirmPassword) {
+                document.getElementById('confirm').setCustomValidity('两次输入的密码不一致');
+            } else {
+                document.getElementById('confirm').setCustomValidity('');
+            }
+        });
+        </script>
+
+      
+        
+    
+</body>
+</html>
